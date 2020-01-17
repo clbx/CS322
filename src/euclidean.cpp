@@ -6,5 +6,10 @@ int euclidian::gcdRecursive(int a, int b){
 }
 
 int euclidian::gcdIterative(int a, int b){
-    return 0;
+    while(b != 0){
+        int temp = b;
+        b = a%b;
+        a = temp;
+    }
+    return a;
 }
