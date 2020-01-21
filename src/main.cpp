@@ -1,11 +1,17 @@
 #include "euclidean.hpp"
 #include "primes.hpp"
-#include <stdio.h>
+#include <iostream>
+
 
 int main(int argc, char** argv){
     euclidian euc;
-    int gcd = euc.gcdRecursive(48,36);
-    printf("%d\n",gcd);
-    gcd = euc.gcdIterative(48,36);
-    printf("%d\n",gcd);
+    primes p;
+
+    //euc.run(2147483640,1145435640);
+    p.run(500);
+    return 0;
 }
+
+
+
+

@@ -1,5 +1,26 @@
-SOURCES=src/main.cpp src/euclidean.cpp src/primes.cpp
-INCLUDE=-Iinclude
+EXE = algorithms
+SOURCES = main.cpp euclidean.cpp primes.cpp
+#SOURCEDIR = src
+#SOURCES := $(shell find $(SOURCEDIR) -name '*.cpp')
+VPATH = src:bin
 
-main:
-	g++ -Wall $(INCLUDE) $(SOURCES) -o alg
+OBJS = $(addsuffix .o, $(basename $(notdir $(SOURCES))))
+BINS = $(addprefix bin/, $(OBJS))
+UNAME_S := $(shell uname -s)
+
+CXXFLAGS = -Iinclude
+CXXFLAGS += -g -Wall -Wformat -Wno-unknown-pragmas -std=c++11
+
+
+%.o:%.cpp
+	mkdir -p bin
+	$(CXX) $(CXXFLAGS) -c -o bin/$@ $<
+
+all: $(EXE)
+	@echo Build complete
+
+$(EXE): $(OBJS)
+	$(CXX) -o $@ $(BINS) $(CXXFLAGS)
+
+clean:
+	rm -f $(EXE) $(OBJS)
