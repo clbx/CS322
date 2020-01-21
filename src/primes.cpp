@@ -20,23 +20,3 @@ std::vector<int> primes::sieve(int n){
 
     return primes;
 }
-
-std::vector<int> primes::run(int n){
-    std::cout << "Prime Numbers:" << std::endl;
-    //Sieve Algorithm
-    std::cout << "Seive Algorithm (Slow)" << std::endl;
-    auto start = std::chrono::steady_clock::now();
-    std::vector<int> primes = sieve(n);
-    auto end = std::chrono::steady_clock::now();
-    auto diff = end - start;
-    std::cout << "Recursive Execution Time: " << std::chrono::duration <double, std::nano> (diff).count()  << " ns" << std::endl;
-    
-    
-    std::cout << primes.size() << " primes between 0 and "<< n << ": ";
-    for (auto const& c : primes){
-        std::cout << c << ' ';
-    }
-    std::cout << std::endl << "===================" << std::endl;
-    return primes;
-
-}

@@ -7,11 +7,16 @@ int main(int argc, char** argv){
     euclidian euc;
     primes p;
 
-    //euc.run(2147483640,1145435640);
-    p.run(500);
+
     return 0;
 }
 
-
+/*
+start = std::chrono::steady_clock::now();
+//run algorithm
+end = std::chrono::steady_clock::now();
+diff = end - start;
+std::cout << "Execution Time: " << std::chrono::duration <double, std::nano> (diff).count()  << " ns" << std::endl;
+*/
 
 
