@@ -1,18 +1,13 @@
 #include <iostream>
+#include <vector>
+#include <tuple>
 
-class euclidian{
+class euclidean{
     public:
-        struct extended{
-            int x;
-            int y;
-            int d;
-        };
 
         int gcdRecursive(int a, int b);
         int gcdIterative(int a, int b);
-        extended extendedEuclidean(int a, int b);
-
-        
-
+        int gcdExtended(int a, int b, int* x, int* y); 
+        void diophantine(int a, int b, int c, int *x, int *y);
 };
 

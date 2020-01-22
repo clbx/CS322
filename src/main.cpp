@@ -4,9 +4,11 @@
 
 
 int main(int argc, char** argv){
-    euclidian euc;
+    euclidean euc;
     primes p;
 
+    int x,y;
+    euc.diophantine(3,6,8,x,y);
 
     return 0;
 }
