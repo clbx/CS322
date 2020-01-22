@@ -31,17 +31,12 @@ int euclidean::gcdExtended(int a, int b, int *x, int *y){
 }
 
 void euclidean::diophantine(int a, int b, int c, int *x, int *y) {
-    int gcd = gcdExtended(a, b, x, y);
-
-    if (c % gcd != 0) {
-        *x = 0;
-        *y = 0;
-        std::cout << "No solution" << std::endl;
-        return;
+    int gcd = gcdExtended(a,b,x,y);
+    if(c%gcd){
+        std::cout << "No Solution" << std::endl;
     }
-
-    c = c / gcd;
-
-    *x = *x * c; 
-    *y = *y * c;
+    int d = c / gcd;
+    *x *= d;
+    *y *= d;
+    return;
 }
