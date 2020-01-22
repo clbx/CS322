@@ -1,1 +1,127 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
 
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{C++}{
+    language        = C++,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CS322 Algorithms}
+\newcommand\hwnumber{1}                  % <-- homework number
+\newcommand\NetIDb{Clay Buxton}           % <-- NetID of person #1
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+\textbf{Prove gcd(m,n) \textbar{} gcd(n,m\%n)}\\
+
+Let c = gcd(n,m\%n) for all integers n,m where n \textgreater m\\
+Therefore c\textbar{}n and c\textbar{}m\%n\\
+If c\textbar{}m\%n then c\textbar{}km+n for some integer k\\
+if c\textbar{}km+n then c\textbar{}gcd(m,n) by definition of gcd
+
+\section*{Problem 2}
+\textbf{Implement the Sieve algorithm}\\
+\textit{Also see primes.cpp}
+
+\lstset{caption={Sieve Algorithm}}
+    \lstset{label={lst:alg1}}
+     \begin{lstlisting}[style = C++]
+        std::vector<int> primes::sieve(int n){
+            //Initlize List
+            std::vector<int> primes;
+            for(int i = 0; i < n; i++){
+                primes.push_back(i);
+            }
+            for (int i = 2; i <= n; i++){
+                if(!std::count(primes.begin(),primes.end(),i)){
+                    continue;
+            }
+            for (int j = i + i; j <= n; j += i){
+                primes.erase(std::remove(primes.begin(), primes.end(), j), primes.end());
+            }
+        }
+        return primes;
+    }   
+    \end{lstlisting}
+\newpage
+
+\section*{Problem 3}
+
+\textbf{Implement the Extended Euclidean Algorithm}
+\textit{Also see euclidean.cpp}
+\begin{enumerate}
+    \item 
+    \lstset{caption={Extended Euclidean Algorithm}}
+    \lstset{label={lst:alg2}}
+     \begin{lstlisting}[style = C++]
+    int euclidean::gcdExtended(int a, int b, int *x, int *y){  
+        if (a == 0){  
+            *x = 0;  
+            *y = 1;  
+            return b;  
+        }  
+        int x1, y1; 
+        int gcd = gcdExtended(b%a, a, &x1, &y1);  
+    
+        *x = y1 - (b/a) * x1;  
+        *y = x1;  
+  
+        return gcd;
+    }
+    \end{lstlisting}
+    \item
+    \textbf{Find the integer solution to the Diophantine problem}
+    
+        
+\end{enumerate}
+
+\section*{Problem 4}
+\begin{enumerate}
+    \item 14,25,47,60,81,98
+    \item No, if given two numbers of the same value the algorithm will not work.
+    \item No, it uses 2 arrays the "Count" and "A" arrays, and then needs another array to output the values to.
+\end{enumerate}
+
+
+
+\end{document}
