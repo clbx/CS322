@@ -1,0 +1,77 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{C++}{
+    language        = C++,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CS322 Algorithms}
+\newcommand\hwnumber{2}                  % <-- homework number
+\newcommand\NetIDb{Clay Buxton}           % <-- NetID of person #1
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+\begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
+\textbf{a.)} Same. $n(n+1) = n^2+n$. $n^2+n$ and $2000n^2$ have the same order of growth. & \textbf{b.)} Lower. $n^2$ is a lower order of growth than $n^3$ regardless of coefficient\\
+\textbf{c.)} Same. All logarithms have the same order of growth. & \textbf{d.)}Higher. $log_2^2(n) = (log_2(n))^2$ and $log_2(n^2) = 2(log_2(n))$\\
+\textbf{e.)} Same. $2^{n-1} = \frac{1}{2}(2^n)$ and $\frac{1}{2}(2^n)$ has the same order of magnitude as $2^n$ & \textbf{f.)} Lower. $(n-1)!$ is one order of growth lower then $n!$\\
+\end{tabular}
+
+\section*{Problem 2}
+\begin{description}
+    \item [a.)]$C_{worst}(n) \in \theta(n)$  
+    \item [b.)]$C_{best}(n) \in \theta(n)$  
+    \item [c.)]$C_{average}(n) \in \theta(n)$  
+\end{description}
+
+\section*{Problem 3}
+
+$5lg(n+100)^{100}$ \xrightarrow{} $ln^2n$ \xrightarrow{} $\sqrt[3]{n}$ \xrightarrow{} $.001n^4+3n^3+1$ \xrightarrow{} $3^n$ \xrightarrow{} $2^{2n}$ \xrightarrow{} $(n-2)!$
+
+\section*{Problem 4}
+
+
+
+
+\end{document}
