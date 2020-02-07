@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{amssymb}
 
 \hypersetup{%
   colorlinks=true,
@@ -53,16 +54,42 @@
 
 \section*{Problem 1}
 \begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
-\textbf{a.)} Same. $n(n+1) = n^2+n$. $n^2+n$ and $2000n^2$ have the same order of growth. & \textbf{b.)} Lower. $n^2$ is a lower order of growth than $n^3$ regardless of coefficient\\
-\textbf{c.)} Same. All logarithms have the same order of growth. & \textbf{d.)}Higher. $log_2^2(n) = (log_2(n))^2$ and $log_2(n^2) = 2(log_2(n))$\\
-\textbf{e.)} Same. $2^{n-1} = \frac{1}{2}(2^n)$ and $\frac{1}{2}(2^n)$ has the same order of magnitude as $2^n$ & \textbf{f.)} Lower. $(n-1)!$ is one order of growth lower then $n!$\\
+\textbf{a.)} \textbf{Same}. $n(n+1) = n^2+n$. $n^2+n$ and $2000n^2$ have the same order of growth. & \textbf{b.)} \textbf{Lower}. $n^2$ is a lower order of growth than $n^3$ regardless of coefficient\\
+\textbf{c.)} \textbf{Same}. All logarithms have the same order of growth. & \textbf{d.)}\textbf{Higher}. $log_2^2(n) = (log_2(n))^2$ and $log_2(n^2) = 2(log_2(n))$\\
+\textbf{e.)} \textbf{Same}. $2^{n-1} = \frac{1}{2}(2^n)$ and $\frac{1}{2}(2^n)$ has the same order of magnitude as $2^n$ & \textbf{f.)} \textbf{Lower}. $(n-1)!$ is one order of growth lower then $n!$\\
 \end{tabular}
 
 \section*{Problem 2}
 \begin{description}
-    \item [a.)]$C_{worst}(n) \in \theta(n)$  
-    \item [b.)]$C_{best}(n) \in \theta(n)$  
-    \item [c.)]$C_{average}(n) \in \theta(n)$  
+    \item [a.)]$C_{worst}(n) \in \theta(n)$.\\ 
+    $C_{worst}(n) = n$ Since there are n number of elements in the array. If the key is either the last element or not in the array, the order of execution is n.\\\\
+    For $C_{worst}(n) \in O(n)$.  $\exists c$ such that $cn \leq n$. 
+    Let $c = 1$
+    $cn \leq n$ \xrightarrow{} $1n \leq n$ \xrightarrow{} $n \leq n$\\\\
+    \therefore $C_{worst} \in O(n)$\\\\
+    For $C_{worst}(n) \in \Omega(n)$.  $\exists c$ such that $cn \geq n$. 
+    Let $c = 1$
+    $cn \geq n$ \xrightarrow{} $1n \geq n$ \xrightarrow{} $n \geq n$\\\\
+    \therefore $C_{worst} \in \Omega(n)$\\\\
+    Since $C_{worst} \in O(n)$ and $C_{worst} \in \Omega(n), C_{worse} \in \Theta(n)$\\
+    
+    \item [b.)] $C_{best}(n) \in \theta(1)$.\\
+    $C_{best}(n) = 1$ Since the best case is the first element of the array.\\\\
+    By definition $C_{best} \in \Omega(1)$ and $C_{best} \in O(1)$\\\\
+    And if $C_{best} \in \Omega(1)$ and $C_{best} \in O(1)$ then $C_{best} \in \theta(1)$
+    
+    
+    \item [c.)]$C_{avg}(n) \in \theta(n)$\\
+    $C_{avg}(n) = \tfrac{p(n+1))}{2}+n(1-p)$\\\\
+    For $C_{avg}(n) \in O(n), c(\tfrac{p(n+1))}{2}+n(1-p)) \leq \tfrac{p(n+1))}{2}+n(1-p)$\\\\
+    Let $0 < c < 1$ so $c(\tfrac{p(n+1))}{2}+n(1-p)) \leq \tfrac{p(n+1))}{2}+n(1-p)$\\\\
+    $\therefore C_{avg} \in O(n)$\\\\
+    For $C_{avg}(n) \in \Omega(n), c(\tfrac{p(n+1))}{2}+n(1-p)) \geq \tfrac{p(n+1))}{2}+n(1-p)$\\\\
+    Let $c > 1$ so $c(\tfrac{p(n+1))}{2}+n(1-p)) \geq \tfrac{p(n+1))}{2}+n(1-p)$\\\\
+    $\therefore C_{avg} \in \Omega(n)$
+    
+    And if $C_{avg} \in O(n)$ and $C_{avg} \in \Omega(n)$ then $C_{avg} in \Theta(n)$ 
+    
 \end{description}
 
 \section*{Problem 3}
@@ -70,7 +97,6 @@
 $5lg(n+100)^{100}$ \xrightarrow{} $ln^2n$ \xrightarrow{} $\sqrt[3]{n}$ \xrightarrow{} $.001n^4+3n^3+1$ \xrightarrow{} $3^n$ \xrightarrow{} $2^{2n}$ \xrightarrow{} $(n-2)!$
 
 \section*{Problem 4}
-
 
 
 
