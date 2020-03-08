@@ -1,0 +1,9 @@
+#include "helpers.hpp"
+
+int helpers::factorial(int n){
+  return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+}
+
+int helpers::findInArray(std::vector<int> v){
+    
+}
