@@ -6,13 +6,10 @@
 
 int main(int argc, char** argv){
     permutations p;
+    
+    p.johnsontrotter(10);
 
-    std::vector<int> permutations = p.johnsontrotter(5);
-    for (auto const& c : permutations){
-        std::cout << c << ' ';
-    }
-    std::cout << std::endl;
-    return 0;
+
 }
 
 /*
