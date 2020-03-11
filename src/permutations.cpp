@@ -15,7 +15,7 @@ std::vector<int> permutations::johnsontrotter(int n){
     
     for(int i = 0; i < helpers::factorial(n); i++){
         int mobile = findMobile();
-        int pos = std::find(perms.begin(), perms.end(), mobile);
+        int pos = helpers::findInVector(perms,mobile);
         if(direction[perms[pos-1]-1] == RIGHT){
             std::swap(perms[pos],perms[pos-1]);
         }
@@ -26,10 +26,10 @@ std::vector<int> permutations::johnsontrotter(int n){
         for(int i = 0; i < n; i++){
             if(perms[i] > mobile){
                 if(direction[perms[i]-1] == LEFT){
-                    direction[perms[i]-1] == RIGHT;
+                    direction[perms[i]-1] = RIGHT;
                 }
                 else if(direction[perms[i]-1] == RIGHT){
-                    direction[perms[i]-1] == LEFT;
+                    direction[perms[i]-1] = LEFT;
                 }
             }
         }
@@ -49,14 +49,14 @@ std::vector<int> permutations::johnsontrotter(int n){
 int permutations::findMobile(){
     int prev = 0;
     int mobile = 0;
-    for(int i = 0; i < perms.size(); i++){
+    for(int i = 0; i < (int)perms.size(); i++){
         if(direction[perms[i]] == RIGHT && i != 0){
             if(perms[i] > perms[i-1] && perms[i] > prev){
                 mobile = perms[i];
                 prev = mobile;
             }
         }
-        if(direction[perms[i]-1] == LEFT && i != perms.size()-1){
+        if(direction[perms[i]-1] == LEFT && i != (int)perms.size()-1){
             if(perms[i] > perms[i+1] && perms[i] > prev){
                 mobile = perms[i];
                 prev = mobile;
