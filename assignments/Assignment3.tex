@@ -58,28 +58,52 @@
 
 \section*{Problem 2}
 \begin{description}
-\item[a.)] for n = 2;\\
+\item[a.)] for n = 2\\
 12 21\\
 for n = 3\\
 123 213 312 132 231 321\\
 for n = 4\\
 1234 2134 3124 1324 2314 3214 4231 2431 3421 4321 2341 3241 4132 1432 3412 4312 1342 3142 4123 1423 2413 4213 1243 2143
-\item[b.)]
+\item[b.)] for n = 2\\
+12 21\\
+for n = 3\\
+123 132 312 321 231 213\\
+for n = 4\\
+1234 1243 1423 4123 4132 1432 1342 1324 3124 3142 3412 4312 4321 3421 3241 3214 2314 2341 2431 4231 4213 2413 2143 2134
 \end{description}
 
 \section*{Problem 3}
+
+\lstset{caption={Binary Strings Pseudocode}}
+    \lstset{label={lst:alg1}}
+     \begin{lstlisting}
+     String genStrings(int n, int[] arr, int i){
+     	if( i == n )
+     		print arr
+     	
+     	arr[i] = 0
+     	genStrings(n, arr, i + 1)
+     	arr[i] = 1
+     	genStrings(n, arr, i + 1)     
+     }
+    \end{lstlisting}
+\newpage
+\section*{Problem 4}
 $T(n) = 4T\frac{n}{2}+n, T(1) = 1$\\
-$a = 4, b = 2, d = 0, f(n) = n$ \therefore{} $n^{log_{b}^{d}} = n^{log_{2}^{4}}$\\
+$a = 4, b = 2, d = 0, f(n) = n \therefore{} n^{log_{b}^{d}} = n^{log_{2}^{4}}$\\
 $=n^{2log^{2}_{2}}$
 $=n^{2*1}$\\
 =$n^2$\\
-\therefore{} $T(n) = \theta(n^2)$\\\\
+$\therefore{} T(n) = \theta(n^2)$\\
+
 $T(n) = 4T\frac{n}{2}+n^2, T(1) = 1$\\
+$a = 4, b = 2, d = 2, f(n)=n^2$\\
+$n^{d}log(n) = n^{2}log(n)$\\
+$\therefore{} T(n) = \theta(n^{2}log(n))$\\
+ 
 $T(n) = 4T\frac{n}{2}+n^3, T(1) = 1$\\
-
-\section*{Problem 4}
-
-
-
+$a = 4, b = 2, d = 3, f(n) = n^{3}$\\
+$n^{d} = n^{3}$\\
+$\therefore{} T(n) = \theta(n^{3})$
 
 \end{document}

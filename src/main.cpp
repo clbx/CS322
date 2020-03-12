@@ -7,7 +7,7 @@
 int main(int argc, char** argv){
     permutations p;
     
-    p.johnsontrotter(10);
+    p.johnsontrotter(4);
 
 
 }
