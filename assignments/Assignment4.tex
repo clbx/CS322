@@ -1,0 +1,112 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amssymb}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{C++}{
+    language        = C++,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\lstdefinestyle{pseudo}{
+    frame           = lines, 
+    basicstyle      = \footnotesize
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CS322 Algorithms}
+\newcommand\hwnumber{2}                  % <-- homework number
+\newcommand\NetIDb{Clay Buxton}           % <-- NetID of person #1
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+\lstset{caption={Divide and Conquer Finding Min and Max}}
+\lstset{label={lst:alg1}}
+\begin{lstlisting}[style=pseudo]
+DCMinMax(arr[], l, r, min, max){
+	if(l == r){
+		min = A[l], max = A[l]
+	}
+	else if(r-l = 1){
+		if(A[l] == A[r]){
+			min = Al[l], max = A[r]
+		}
+		else{
+			min = A[r], max = A[l]
+		}
+	}
+	else{
+		DCMinMax(A[0,(l+r)/2],min,max) //Give half the array
+		DCMinMax(A[(l+r)/2+1,r],min1,min2)
+		if(min2 < min)
+			min = min2
+		if(max2 > max)
+			max = max2
+	}
+\end{lstlisting}
+
+
+\section*{Problem 2}
+Recurrence for Pan's algorithm:
+$M(n) = 143,640M(n/70)$
+
+Using Master Theorem:
+$\theta(n^p)$ where $p=log_{70}143640 = 2.795$
+
+Recurrence for Strassens algorithm $s = log_{2}7 = 2.807$
+
+$\therefore$ The recurrence for Pan's algorithm is slightly lower than Strassen's
+
+\section*{Problem 3}
+\textit{See sorts.cpp}
+\newpage
+\section*{Problem 4}
+Prove $\sum_{h-1}^{i=0}2(h-i)2^{i} = 2(n-log_{2}(n+1))$ where $n=2^{k+1}-1$
+
+Substitute $n$ $2(2^{h+1}-1-log_{2}(2^{h+1})) = 2(2^{h+1}-h-2)$ 
+\\$\sum_{i=0}^{h-1}2(h-2)2^{i}$
+\\$= \sum_{i=0}^{h-1}2(h-2)2^{i}$
+\\$= 2(\sum_{h-1}^{i=0}h2^{i} -\sum_{h-1}^{i=0} h2^{i}-\sum_{h-1}^{i=0}i2^{i}$
+\\$= 2(h(2^{h}-1)-(h-2)2^{h}-2)$
+\\$= 2(2^{h+1}-h-2)$
+\\\therefore $\sum_{h-1}^{i=0}2(h-i)2^{i} = 2(n-log_{2}(n+1))$
+
+\end{document}

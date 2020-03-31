@@ -1,5 +1,5 @@
 EXE = algorithms
-SOURCES = main.cpp euclidean.cpp primes.cpp permutations.cpp helpers.cpp
+SOURCES = main.cpp euclidean.cpp primes.cpp permutations.cpp helpers.cpp sorts.cpp
 #SOURCEDIR = src
 #SOURCES := $(shell find $(SOURCEDIR) -name '*.cpp')
 VPATH = src:bin
