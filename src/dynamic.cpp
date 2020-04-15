@@ -41,9 +41,10 @@ int dynamic::change(int* coins, int n, int amt){
     res[0] = 0;
     for(int i = 0; i < n; i++){
         int small = INT_MAX;
-        for(int j = coins[i]; j <= amt; j++){
-            res[j] = res[j] + res[j - coins[i]];
+        for(int j = 0; j < n && i >= coins[j]; j++){
+            small = std::min(res[i-coins[j]], small);
         }
+        res[i] = small+1;
     }
     return res[amt];
 }
@@ -64,3 +65,31 @@ int dynamic::robot(int board[5][5], int row, int col){
 
     return res[row-1][col-1];
 }
+
+
+int dynamic::sequence(int* arr, int n){
+    int max = 1;
+    seqInternal(arr,n,&max);
+    return max;
+}
+
+int dynamic::seqInternal(int* arr, int n, int* max){
+    if(n == 1){
+        return 1;
+    }
+
+    int res = 1;
+    int finalMax = 1;
+
+    for(int i = 1; i < n; i++){
+        res = seqInternal(arr,i,max);
+        if(arr[i-1] < arr[n-1] && res + 1 > finalMax){
+            finalMax = res + 1;
+        }
+    }
+    if(*max < finalMax){
+        *max = finalMax;
+    }
+    return finalMax;
+}
+

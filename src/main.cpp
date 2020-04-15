@@ -22,6 +22,8 @@ int main(int argc, char** argv){
     }
     printf("Max Sum: %d\n",max);
     //Min Change
+    int change[3] = {1,2,3};
+    printf("Minimum Coins: %d\n",d.change(change,3,4));
 
     //Robot Coin Collection
     int board [5][5] = {{0,0,0,0,0},
@@ -33,10 +35,10 @@ int main(int argc, char** argv){
     printf("Maximum Robot Coins: %d\n",d.robot(board,5,5));
 
 
-    //Longest subsequence    
-
-
-
+    //Longest subsequence  
+    int arr[] = {10,5,3,12,66,34,95,63};
+    n = 8;
+    printf("Longest Subsequence: %d\n",d.sequence(arr,n));
 }
 
 
