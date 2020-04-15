@@ -20,13 +20,20 @@ int main(int argc, char** argv){
     for(int i = 0; i < 7; i++){
         printf("%d ",coins[i]);
     }
-    printf("Max Sum: %d",max);
-
-    //Max Change
-
+    printf("Max Sum: %d\n",max);
+    //Min Change
 
     //Robot Coin Collection
-    
+    int board [5][5] = {{0,0,0,0,0},
+                        {1,0,1,0,0},
+                        {0,1,0,1,0},
+                        {0,1,0,0,0},
+                        {1,0,0,0,0}};
+
+    printf("Maximum Robot Coins: %d\n",d.robot(board,5,5));
+
+
+    //Longest subsequence    
 
 
 

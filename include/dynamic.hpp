@@ -5,6 +5,6 @@ class dynamic{
         int fibonacci(int);
         int coins(int*, int);
         int change(int*, int, int);
-        void robot();
+        int robot(int[5][5], int, int);
         void sequence();
 };
